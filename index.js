@@ -11,7 +11,7 @@ var path = require('path');
  */
 
 var bin = new BinWrapper()
-	.src('https://raw.github.com/toshgoodson/optipng-bin/0.3.9/vendor/osx/optipng', 'darwin')
+	.src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/osx/optipng', 'darwin')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/linux/x86/optipng', 'linux', 'x86')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/linux/x64/optipng', 'linux', 'x64')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/freebsd/optipng', 'freebsd')
