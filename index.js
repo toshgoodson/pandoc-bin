@@ -19,7 +19,7 @@ var bin = new BinWrapper()
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/sunos/x64/optipng', 'sunos', 'x64')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/win/optipng.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
-	.use(process.platform === 'win32' ? 'optipng.exe' : 'optipng');
+	.use(process.platform === 'win32' ? 'pandoc.exe' : 'pandoc');
 
 /**
  * Only run check if binary doesn't already exist
