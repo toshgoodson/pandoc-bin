@@ -1,0 +1,44 @@
+{
+  "name": "pandoc-bin",
+  "version": "0.0.0",
+  "description": "Pandoc wrapper that makes it seamlessly available as a local dependency on OS X and Windows",
+  "license": "MIT",
+  "repository": "https://github.com/toshgoodson/pandoc-bin",
+  "author": {
+    "name": "Tosh Goodson",
+    "email": "tosh.goodson@gmail.com",
+    "url": "http://www.toshgoodson.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bin": {
+    "pandoc": "cli.js"
+  },
+  "scripts": {
+    "postinstall": "node index.js",
+    "test": "mocha --reporter list --timeout 0"
+  },
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
+  "keywords": [
+    "pandoc",
+    "markdown",
+    "pdf",
+    "document",
+    "convert",
+    "html"
+  ],
+  "dependencies": {
+    "bin-build": "^0.1.0",
+    "bin-wrapper": "^0.3.0",
+    "chalk": "^0.4.0"
+  },
+  "devDependencies": {
+    "bin-check": "^0.1.0",
+    "mocha": "^1.18.2",
+    "rimraf": "^2.2.6"
+  }
+}
