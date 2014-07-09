@@ -10,7 +10,7 @@ var path = require('path');
  * Initialize a new BinWrapper
  */
 
-console.log("Buildify pandoc stuff");
+console.log(chalk.yellow('⧖ Downloading Pandoc (~50MB). This may take a couple minutes.'));
 var bin = new BinWrapper()
 	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/osx/pandoc', 'darwin')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/linux/x86/optipng', 'linux', 'x86')
