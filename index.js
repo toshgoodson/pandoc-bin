@@ -12,10 +12,10 @@ var exec = require('child_process').exec;
  */
 
 var bin = new BinWrapper({ global: false })
-	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/osx/pandoc', 'darwin')
-	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/linux/x86/pandoc', 'linux', 'x86')
-	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/linux/x64/pandoc', 'linux', 'x64')
-	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/win/pandoc.exe', 'win32')
+	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.1.0/vendor/osx/pandoc', 'darwin')
+	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.1.0/vendor/linux/x86/pandoc', 'linux', 'x86')
+	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.1.0/vendor/linux/x64/pandoc', 'linux', 'x64')
+	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.1.0/vendor/win/pandoc.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
 	.use(process.platform === 'win32' ? 'pandoc.exe' : 'pandoc');
 
