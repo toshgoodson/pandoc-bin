@@ -18,7 +18,7 @@ var bin = new BinWrapper()
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/freebsd/optipng', 'freebsd')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/sunos/x86/optipng', 'sunos', 'x86')
 	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/sunos/x64/optipng', 'sunos', 'x64')
-	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/win/optipng.exe', 'win32')
+	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/win/pandoc.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
 	.use(process.platform === 'win32' ? 'pandoc.exe' : 'pandoc');
 
@@ -28,7 +28,7 @@ var bin = new BinWrapper()
 
 fs.exists(bin.use(), function (exists) {
 	if (!exists) {
-		console.log(chalk.yellow('⧗ Downloading Pandoc (~50MB). This may take a couple minutes.'));
+		console.log(chalk.yellow('⧗ Downloading Pandoc (~20-50MB depending on OS). This may take a minute or so.'));
 		bin.run(['--version'], function (err) {
 			if (err) {
 				console.log(chalk.red('✗ pre-build test failed, compiling from source...'));
