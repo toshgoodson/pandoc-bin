@@ -28,28 +28,18 @@ fs.exists(bin.use(), function (exists) {
 		console.log(chalk.yellow('⧗ Downloading Pandoc (~20-50MB depending on OS). This may take a minute or so.'));
 		bin.run(['--version'], function (err) {
 			if (err) {
-				console.log(chalk.red('✗ pre-build test failed, compiling from source...'));
+				console.log(chalk.red('✗ pre-build test failed'));
+				console.log(chalk.red("⚠ I don't have a working binary for your system. If you believe I am incorrect about this or if you want to request a binary for your system, please file an issue on this module's github page. ⚠"));
+				console.log(chalk.yellow('As an alternative to this module, please refer to http://johnmacfarlane.net/pandoc/installing.html for installing Pandoc on your system.'));
 
-				console.log(chalk.yellow('⚠ Building Pandoc from source requires the [Haskell platform]. This available from https://www.haskell.org/platform/.'));
+				// console.log(chalk.yellow('⚠ Building Pandoc from source requires the [Haskell platform]. This available from https://www.haskell.org/platform/.'));
 
-				exec('cabal update', function (error, stdout, stderr) {
-					exec('cabal install hsb2hs', function (error, stdout, stderr) {
-						exec('cabal install --flags="embed_data_files" pandoc', function (error, stdout, stderr) {
-
-						});
-					});
-				});
-				// var builder = new BinBuild()
-				// 	.src('http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz')
-				// 	.cfg('./configure --with-system-zlib --prefix="' + bin.dest() + '" --bindir="' + bin.dest() + '"')
-				// 	.make('make install');
-
-				// return builder.build(function (err) {
-				// 	if (err) {
-				// 		return console.log(chalk.red('✗ ' + err));
-				// 	}
+				// exec('cabal update', function (error, stdout, stderr) {
+				// 	exec('cabal install hsb2hs', function (error, stdout, stderr) {
+				// 		exec('cabal install --flags="embed_data_files" pandoc', function (error, stdout, stderr) {
 				//
-				// 	console.log(chalk.green('✓ optipng built successfully'));
+				// 		});
+				// 	});
 				// });
 			}
 
