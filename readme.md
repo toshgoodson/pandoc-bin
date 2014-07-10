@@ -34,11 +34,6 @@ $ npm install --global pandoc-bin
 $ pandoc --help
 ```
 
-## Caveats
-
-This module has had very little testing outside of very narrow operating conditions (development on OS X, use on Ubuntu CI server).
-I am still busy getting tests set up with Travis CI.
-
 
 ## License
 
