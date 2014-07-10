@@ -5,6 +5,7 @@ var BinWrapper = require('bin-wrapper');
 var chalk = require('chalk');
 var fs = require('fs');
 var path = require('path');
+var exec = require('child_process').exec;
 
 /**
  * Initialize a new BinWrapper
@@ -27,23 +28,32 @@ var bin = new BinWrapper()
 
 fs.exists(bin.use(), function (exists) {
 	if (!exists) {
-		console.log(chalk.yellow('⧖ Downloading Pandoc (~50MB). This may take a couple minutes.'));
+		console.log(chalk.yellow('⧗ Downloading Pandoc (~50MB). This may take a couple minutes.'));
 		bin.run(['--version'], function (err) {
 			if (err) {
 				console.log(chalk.red('✗ pre-build test failed, compiling from source...'));
 
-				var builder = new BinBuild()
-					.src('http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz')
-					.cfg('./configure --with-system-zlib --prefix="' + bin.dest() + '" --bindir="' + bin.dest() + '"')
-					.make('make install');
+				console.log(chalk.yellow('⚠ Building Pandoc from source requires the [Haskell platform]. This available from https://www.haskell.org/platform/.'));
 
-				return builder.build(function (err) {
-					if (err) {
-						return console.log(chalk.red('✗ ' + err));
-					}
+				exec('cabal update', function (error, stdout, stderr) {
+					exec('cabal install hsb2hs', function (error, stdout, stderr) {
+						exec('cabal install --flags="embed_data_files" pandoc', function (error, stdout, stderr) {
 
-					console.log(chalk.green('✓ optipng built successfully'));
+						});
+					});
 				});
+				// var builder = new BinBuild()
+				// 	.src('http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz')
+				// 	.cfg('./configure --with-system-zlib --prefix="' + bin.dest() + '" --bindir="' + bin.dest() + '"')
+				// 	.make('make install');
+
+				// return builder.build(function (err) {
+				// 	if (err) {
+				// 		return console.log(chalk.red('✗ ' + err));
+				// 	}
+				//
+				// 	console.log(chalk.green('✓ optipng built successfully'));
+				// });
 			}
 
 			console.log(chalk.green('✓ pre-build test passed successfully'));
