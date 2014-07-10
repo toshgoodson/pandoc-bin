@@ -3,7 +3,6 @@
 
 var assert = require('assert');
 var binCheck = require('bin-check');
-var BinBuild = require('bin-build');
 var fs = require('fs');
 var path = require('path');
 var spawn = require('child_process').spawn;

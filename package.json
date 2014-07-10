@@ -32,7 +32,6 @@
     "html"
   ],
   "dependencies": {
-    "bin-build": "^0.1.0",
     "bin-wrapper": "^0.3.0",
     "chalk": "^0.4.0"
   },
