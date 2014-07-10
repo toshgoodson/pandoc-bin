@@ -1,8 +1,8 @@
 # pandoc-bin
 
-[Pandoc](https://github.com/jgm/pandoc) 1.12.4.2 Node.js wrapper that makes it seamlessly available as a local dependency on OS X and Windows (Linux coming soon).
+[Pandoc](https://github.com/jgm/pandoc) 1.12.4.2 Node.js wrapper that makes it seamlessly available as a local dependency on OS X, Linux, and Windows.
 
-> OptiPNG is a PNG optimizer that recompresses image files to a smaller size, without losing any information.
+> If you need to convert files from one markup format into another, pandoc is your swiss-army knife.
 
 
 ## Install
@@ -36,8 +36,8 @@ $ pandoc --help
 
 ## Caveats
 
-This module has had very little testing outside of very narrow operating conditions (development on OSX, use on Ubuntu CI server).
-I am still busy getting tests set up with Travis CI. 
+This module has had very little testing outside of very narrow operating conditions (development on OS X, use on Ubuntu CI server).
+I am still busy getting tests set up with Travis CI.
 
 
 ## License
