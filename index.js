@@ -13,7 +13,7 @@ var exec = require('child_process').exec;
 
 var bin = new BinWrapper({ global: false })
 	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/osx/pandoc', 'darwin')
-	// .src('https://raw.github.com/imagemin/optipng-bin/0.3.9/vendor/linux/x86/optipng', 'linux', 'x86')
+	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/linux/x86/pandoc', 'linux', 'x86')
 	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/linux/x64/pandoc', 'linux', 'x64')
 	.src('https://raw.github.com/toshgoodson/pandoc-bin/0.0.0/vendor/win/pandoc.exe', 'win32')
 	.dest(path.join(__dirname, 'vendor'))
