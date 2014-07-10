@@ -1,4 +1,4 @@
-# pandoc-bin
+# pandoc-bin [![Build Status](https://secure.travis-ci.org/toshgoodson/pandoc-bin.svg?branch=master)](http://travis-ci.org/toshgoodson/pandoc-bin)
 
 [Pandoc](https://github.com/jgm/pandoc) 1.12.4.2 Node.js wrapper that makes it seamlessly available as a local dependency on OS X, Linux, and Windows.
 
