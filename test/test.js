@@ -9,27 +9,13 @@ var path = require('path');
 var spawn = require('child_process').spawn;
 var rm = require('rimraf');
 
-describe('optipng()', function () {
+describe('pandoc()', function () {
 	afterEach(function (cb) {
 		rm(path.join(__dirname, 'tmp'), cb);
 	});
 
 	beforeEach(function (cb) {
 		fs.mkdir(path.join(__dirname, 'tmp'), cb);
-	});
-
-	it('should rebuild the optipng binaries', function (cb) {
-		var tmp = path.join(__dirname, 'tmp');
-		var builder = new BinBuild()
-			.src('http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-0.7.5/optipng-0.7.5.tar.gz')
-			.cfg('./configure --with-system-zlib --prefix="' + tmp + '" --bindir="' + tmp + '"')
-			.make('make install');
-
-		builder.build(function (err) {
-			assert(!err);
-			assert(fs.existsSync(path.join(tmp, 'optipng')));
-			cb();
-		});
 	});
 
 	it('should return path to binary and verify that it is working', function (cb) {
@@ -40,20 +26,26 @@ describe('optipng()', function () {
 		});
 	});
 
-	it('should minify a PNG', function (cb) {
+	it('should convert markdown to html5', function (cb) {
 		var binPath = require('../').path;
 		var args = [
-			'-strip', 'all',
-			'-clobber',
-			'-out', path.join(__dirname, 'tmp/test.png'),
-			path.join(__dirname, 'fixtures', 'test.png')
+			'-f', 'markdown',
+			'-t', 'html',
+			'-s',
+			'-o', path.join(__dirname, 'tmp/test.html'),
+			path.join(__dirname, 'fixtures', 'test.md')
 		];
 
 		spawn(binPath, args).on('close', function () {
-			var src = fs.statSync(path.join(__dirname, 'fixtures/test.png')).size;
-			var dest = fs.statSync(path.join(__dirname, 'tmp/test.png')).size;
+			var html = fs.readFileSync(path.join(__dirname, 'tmp/test.html'), {encoding: 'utf8'});
 
-			cb(assert(dest < src));
+			var correct = true;
+			correct &= new RegExp('<h1 id="level-one-header">level one header</h1>').test(html);
+			correct &= new RegExp('<h2 id="level-two-header">level two header</h2>').test(html);
+			correct &= new RegExp('<h3 id="level-three-header">level three header</h3>').test(html);
+			correct &= new RegExp('<p>general text</p>').test(html);
+
+			cb(assert(correct));
 		});
 	});
 });
