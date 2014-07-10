@@ -41,9 +41,9 @@ fs.exists(bin.use(), function (exists) {
 				// 		});
 				// 	});
 				// });
+			} else {
+				console.log(chalk.green('✓ pre-build test passed successfully'));
 			}
-
-			console.log(chalk.green('✓ pre-build test passed successfully'));
 		});
 	}
 });
