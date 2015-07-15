@@ -22,7 +22,7 @@ var bin = new BinWrapper({ global: false })
  * Only run check if binary doesn't already exist
  */
 
-fs.exists(bin.use(), function (exists) {
+fs.exists(bin.path(), function (exists) {
 	if (!exists) {
 		console.log(chalk.yellow('⧗ Downloading Pandoc (~20-50MB depending on OS). This may take a minute or so.'));
 		bin.run(['--version'], function (err) {
@@ -41,4 +41,4 @@ fs.exists(bin.use(), function (exists) {
  * Module exports
  */
 
-module.exports.path = bin.use();
+module.exports.path = bin.path();
