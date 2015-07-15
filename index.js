@@ -4,7 +4,6 @@ var BinWrapper = require('bin-wrapper');
 var chalk = require('chalk');
 var fs = require('fs');
 var path = require('path');
-var exec = require('child_process').exec;
 
 /**
  * Initialize a new BinWrapper
