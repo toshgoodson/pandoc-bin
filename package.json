@@ -1,6 +1,6 @@
 {
   "name": "pandoc-bin",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Pandoc wrapper that makes it seamlessly available as a local dependency on OS X, Linux, and Windows",
   "license": "MIT",
   "repository": "https://github.com/toshgoodson/pandoc-bin",
