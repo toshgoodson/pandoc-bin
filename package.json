@@ -32,13 +32,13 @@
     "html"
   ],
   "dependencies": {
-    "bin-wrapper": "^3.0.0",
+    "bin-wrapper": "^4.1.0",
     "chalk": "^0.4.0",
     "win-spawn": "^2.0.0"
   },
   "devDependencies": {
     "bin-check": "^0.1.0",
-    "mocha": "^1.18.2",
+    "mocha": "^6.1.4",
     "rimraf": "^2.2.6"
   }
 }
